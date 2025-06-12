@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bokeh Plot</title>
+    <style>
+      html, body {
+        box-sizing: border-box;
+        display: flow-root;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.7.3.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+  </head>
+  <body>
+    <div id="afdcac30-ebc9-4d10-832b-7440ef0aaf69" data-root-id="p2214" style="display: contents;"></div>
+  
+    <script type="application/json" id="f34c01ed-66bd-4848-86ac-8971c620a5ea">
+      {"7d5604bc-8119-464a-8e1a-6d50bef8cc52":{"version":"3.7.3","title":"Bokeh Application","roots":[{"type":"object","name":"Figure","id":"p2214","attributes":{"height":400,"x_range":{"type":"object","name":"Range1d","id":"p2224","attributes":{"start":-0.5}},"y_range":{"type":"object","name":"DataRange1d","id":"p2216"},"x_scale":{"type":"object","name":"LinearScale","id":"p2225"},"y_scale":{"type":"object","name":"LinearScale","id":"p2226"},"title":{"type":"object","name":"Title","id":"p2217","attributes":{"text":"Distribusi Efek Musik pada Kesehatan Mental"}},"renderers":[{"type":"object","name":"GlyphRenderer","id":"p2246","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p2211","attributes":{"selected":{"type":"object","name":"Selection","id":"p2212","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p2213"},"data":{"type":"map","entries":[["index",{"type":"ndarray","array":{"type":"bytes","data":"AAAAAAEAAAACAAAA"},"shape":[3],"dtype":"int32","order":"little"}],["effect",{"type":"ndarray","array":["Improve","No effect","Worsen"],"shape":[3],"dtype":"object","order":"little"}],["count",{"type":"ndarray","array":{"type":"bytes","data":"HAIAAKkAAAARAAAA"},"shape":[3],"dtype":"int32","order":"little"}],["angle",{"type":"ndarray","array":{"type":"bytes","data":"M1IZNJuxEkByuHq83mb3P/mYhSEO1cI/"},"shape":[3],"dtype":"float64","order":"little"}],["color",["#1f77b4","#aec7e8","#ff7f0e"]]]}}},"view":{"type":"object","name":"CDSView","id":"p2247","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p2248"}}},"glyph":{"type":"object","name":"Wedge","id":"p2243","attributes":{"x":{"type":"value","value":0},"y":{"type":"value","value":1},"radius":{"type":"value","value":0.4},"start_angle":{"type":"expr","expr":{"type":"object","name":"CumSum","id":"p2238","attributes":{"field":"angle","include_zero":true}}},"end_angle":{"type":"expr","expr":{"type":"object","name":"CumSum","id":"p2239","attributes":{"field":"angle"}}},"line_color":{"type":"value","value":"white"},"fill_color":{"type":"field","field":"color"}}},"nonselection_glyph":{"type":"object","name":"Wedge","id":"p2244","attributes":{"x":{"type":"value","value":0},"y":{"type":"value","value":1},"radius":{"type":"value","value":0.4},"start_angle":{"type":"expr","expr":{"id":"p2238"}},"end_angle":{"type":"expr","expr":{"id":"p2239"}},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.1},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Wedge","id":"p2245","attributes":{"x":{"type":"value","value":0},"y":{"type":"value","value":1},"radius":{"type":"value","value":0.4},"start_angle":{"type":"expr","expr":{"id":"p2238"}},"end_angle":{"type":"expr","expr":{"id":"p2239"}},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.2},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p2223","attributes":{"tools":[{"type":"object","name":"HoverTool","id":"p2237","attributes":{"renderers":"auto","tooltips":"@effect: @count"}}]}},"toolbar_location":null,"left":[{"type":"object","name":"LinearAxis","id":"p2232","attributes":{"visible":false,"ticker":{"type":"object","name":"BasicTicker","id":"p2233","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p2234"},"major_label_policy":{"type":"object","name":"AllLabels","id":"p2235"}}}],"below":[{"type":"object","name":"LinearAxis","id":"p2227","attributes":{"visible":false,"ticker":{"type":"object","name":"BasicTicker","id":"p2228","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p2229"},"major_label_policy":{"type":"object","name":"AllLabels","id":"p2230"}}}],"center":[{"type":"object","name":"Grid","id":"p2231","attributes":{"axis":{"id":"p2227"},"grid_line_color":null}},{"type":"object","name":"Grid","id":"p2236","attributes":{"dimension":1,"axis":{"id":"p2232"},"grid_line_color":null}},{"type":"object","name":"Legend","id":"p2249","attributes":{"items":[{"type":"object","name":"LegendItem","id":"p2250","attributes":{"label":{"type":"field","field":"effect"},"renderers":[{"id":"p2246"}]}}]}}]}}]}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('f34c01ed-66bd-4848-86ac-8971c620a5ea').textContent;
+              const render_items = [{"docid":"7d5604bc-8119-464a-8e1a-6d50bef8cc52","roots":{"p2214":"afdcac30-ebc9-4d10-832b-7440ef0aaf69"},"root_ids":["p2214"]}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+  </body>
+</html>

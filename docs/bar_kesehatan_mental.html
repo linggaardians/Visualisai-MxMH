@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bokeh Plot</title>
+    <style>
+      html, body {
+        box-sizing: border-box;
+        display: flow-root;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.7.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.7.3.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+  </head>
+  <body>
+    <div id="c4685ed1-2cd0-44ed-9240-5a35d5b1ce11" data-root-id="p2208" style="display: contents;"></div>
+  
+    <script type="application/json" id="e508eaf4-18c0-4c50-b737-a3833087ece6">
+      {"0788f104-f7a1-41a1-a713-1def06cb7f0e":{"version":"3.7.3","title":"Bokeh Application","roots":[{"type":"object","name":"Column","id":"p2208","attributes":{"children":[{"type":"object","name":"Select","id":"p2206","attributes":{"js_property_callbacks":{"type":"map","entries":[["change:value",[{"type":"object","name":"CustomJS","id":"p2207","attributes":{"args":{"type":"map","entries":[["source",{"type":"object","name":"ColumnDataSource","id":"p2166","attributes":{"selected":{"type":"object","name":"Selection","id":"p2167","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p2168"},"data":{"type":"map","entries":[["genre",{"type":"ndarray","array":["Classical","Country","EDM","Folk","Gospel","Hip hop","Jazz","K pop","Latin","Lofi","Metal","Pop","R&amp;B","Rap","Rock","Video game music"],"shape":[16],"dtype":"object","order":"little"}],["value",{"type":"ndarray","array":{"type":"bytes","data":"K/scUhOME0AAAAAAAAAVQBzHcRzHcRVATyMs9zTCGkBVVVVVVVUTQHh4eHh4eBhAmpmZmZmZF0AhC1nIQhYaQAAAAAAAABRAZmZmZmZmGECMLrroogsXQMZ0FtNZTBhA+Yqv+IqvFEBddNFFF10UQIommmiiiRhAjC666KKLF0A="},"shape":[16],"dtype":"float64","order":"little"}],["color",["#3b2f7f","#36215f","#372365","#3c358b","#3e3a96","#392972","#311542","#341b51","#3f3d9c","#3d3791","#3c3285","#38266c","#32184a","#3a2c79","#351e58","#30123b"]]]}}}],["select",{"id":"p2206"}],["data",{"type":"map","entries":[["Fav genre",["Classical","Country","EDM","Folk","Gospel","Hip hop","Jazz","K pop","Latin","Lofi","Metal","Pop","R&amp;B","Rap","Rock","Video game music"]],["Anxiety",[4.886792452830188,5.25,5.361111111111111,6.689655172413793,4.833333333333333,6.117647058823529,5.9,6.521739130434782,5.0,6.1,5.761363636363637,6.074561403508772,5.171428571428572,5.090909090909091,6.134408602150538,5.886363636363637]],["Depression",[4.0754716981132075,4.166666666666667,5.111111111111111,5.137931034482759,2.6666666666666665,5.882352941176471,4.5,4.304347826086956,4.5,6.6,5.068181818181818,4.4868421052631575,3.8285714285714287,4.0,5.271505376344086,4.4772727272727275]],["Insomnia",[3.792452830188679,2.4583333333333335,3.9444444444444446,3.7241379310344827,5.333333333333333,3.4705882352941178,3.85,3.5652173913043477,4.5,5.6,4.556818181818182,3.3684210526315788,2.8857142857142857,2.272727272727273,3.900537634408602,4.0]],["OCD",[2.3773584905660377,2.5833333333333335,2.888888888888889,2.2758620689655173,0.3333333333333333,2.588235294117647,2.8,2.652173913043478,2.5,3.4,2.397727272727273,2.8552631578947367,2.742857142857143,3.1818181818181817,2.6908602150537635,2.3863636363636362]]]}]]},"code":"\n    const metric = select.value;\n    const new_data = {...source.data};\n    new_data.value = data[metric];\n    source.data = new_data;\n    source.change.emit();\n"}}]]]},"title":"Metrik Kesehatan Mental","options":["Anxiety","Depression","Insomnia","OCD"],"value":"Anxiety"}},{"type":"object","name":"Figure","id":"p2169","attributes":{"width":800,"height":400,"x_range":{"type":"object","name":"FactorRange","id":"p2179","attributes":{"factors":["Classical","Country","EDM","Folk","Gospel","Hip hop","Jazz","K pop","Latin","Lofi","Metal","Pop","R&amp;B","Rap","Rock","Video game music"]}},"y_range":{"type":"object","name":"DataRange1d","id":"p2171"},"x_scale":{"type":"object","name":"CategoricalScale","id":"p2180"},"y_scale":{"type":"object","name":"LinearScale","id":"p2181"},"title":{"type":"object","name":"Title","id":"p2172","attributes":{"text":"Rata-rata Skor Kesehatan Mental Berdasarkan Genre"}},"renderers":[{"type":"object","name":"GlyphRenderer","id":"p2201","attributes":{"data_source":{"id":"p2166"},"view":{"type":"object","name":"CDSView","id":"p2202","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p2203"}}},"glyph":{"type":"object","name":"VBar","id":"p2198","attributes":{"x":{"type":"field","field":"genre"},"width":{"type":"value","value":0.4},"top":{"type":"field","field":"value"},"line_color":{"type":"field","field":"color"},"fill_color":{"type":"field","field":"color"},"hatch_color":{"type":"field","field":"color"}}},"nonselection_glyph":{"type":"object","name":"VBar","id":"p2199","attributes":{"x":{"type":"field","field":"genre"},"width":{"type":"value","value":0.4},"top":{"type":"field","field":"value"},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"VBar","id":"p2200","attributes":{"x":{"type":"field","field":"genre"},"width":{"type":"value","value":0.4},"top":{"type":"field","field":"value"},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p2178","attributes":{"tools":[{"type":"object","name":"PanTool","id":"p2192"},{"type":"object","name":"ResetTool","id":"p2193"},{"type":"object","name":"SaveTool","id":"p2194"}]}},"left":[{"type":"object","name":"LinearAxis","id":"p2187","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p2188","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p2189"},"axis_label":"Skor (0-10)","major_label_policy":{"type":"object","name":"AllLabels","id":"p2190"}}}],"below":[{"type":"object","name":"CategoricalAxis","id":"p2182","attributes":{"ticker":{"type":"object","name":"CategoricalTicker","id":"p2183"},"formatter":{"type":"object","name":"CategoricalTickFormatter","id":"p2184"},"axis_label":"Genre Favorit","major_label_policy":{"type":"object","name":"AllLabels","id":"p2185"}}}],"center":[{"type":"object","name":"Grid","id":"p2186","attributes":{"axis":{"id":"p2182"}}},{"type":"object","name":"Grid","id":"p2191","attributes":{"dimension":1,"axis":{"id":"p2187"}}}]}}]}}]}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('e508eaf4-18c0-4c50-b737-a3833087ece6').textContent;
+              const render_items = [{"docid":"0788f104-f7a1-41a1-a713-1def06cb7f0e","roots":{"p2208":"c4685ed1-2cd0-44ed-9240-5a35d5b1ce11"},"root_ids":["p2208"]}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+  </body>
+</html>
