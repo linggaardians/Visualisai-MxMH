@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,26 @@
     <script src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.7.3.min.js"></script>
     <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.7.3.min.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        h1, h2 { color: #333; }
-        .section { margin-bottom: 40px; }
-        .visualization { margin: 10px 0; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .visualization {
+            margin: 10px 0;
+        }
     </style>
 </head>
+
 <body>
     <h1>Musik dan Kesehatan Mental: Visualisasi Terpadu</h1>
     <p>Tanggal: 12 Juni 2025</p>
@@ -22,10 +37,16 @@
     <div class="section">
         <h2>Analisis Singkat Dataset dan Model</h2>
         <ul>
-            <li><strong>Dataset</strong>: 736 respons, berkurang setelah pembersihan (~600-700 baris). Rata-rata skor - Anxiety (5.8), Depression (4.8), Insomnia (3.7), OCD (2.6); 74% responden melaporkan musik meningkatkan kesehatan mental. Fitur utama: Age, Hours per day, Fav genre, Anxiety, Depression, Insomnia, OCD.</li>
-            <li><strong>Model</strong>: Random Forest (akurasi 70-80%, Anxiety dan Depression prediktor utama); Ridge Regression (MSE 4.01, R² 0.31, Depression dominan); K-Means (3 klaster, e.g., kecemasan tinggi dengan jam mendengarkan lama).</li>
-            <li><strong>Wawasan</strong>: Musik berpengaruh positif (74%), tetapi genre kurang signifikan dibanding faktor psikologis. Dataset kecil dan noise membatasi performa (R² 0.31).</li>
-            <li><strong>Rekomendasi</strong>: Tambah fitur (e.g., While working, BPM) dan tuning model untuk meningkatkan R². Validasi klaster dan distribusi Anxiety lebih lanjut.</li>
+            <li><strong>Dataset</strong>: 736 respons, berkurang setelah pembersihan (~600-700 baris). Rata-rata skor -
+                Anxiety (5.8), Depression (4.8), Insomnia (3.7), OCD (2.6); 74% responden melaporkan musik meningkatkan
+                kesehatan mental. Fitur utama: Age, Hours per day, Fav genre, Anxiety, Depression, Insomnia, OCD.</li>
+            <li><strong>Model</strong>: Random Forest (akurasi 70-80%, Anxiety dan Depression prediktor utama); Ridge
+                Regression (MSE 4.01, R² 0.31, Depression dominan); K-Means (3 klaster, e.g., kecemasan tinggi dengan
+                jam mendengarkan lama).</li>
+            <li><strong>Wawasan</strong>: Musik berpengaruh positif (74%), tetapi genre kurang signifikan dibanding
+                faktor psikologis. Dataset kecil dan noise membatasi performa (R² 0.31).</li>
+            <li><strong>Rekomendasi</strong>: Tambah fitur (e.g., While working, BPM) dan tuning model untuk
+                meningkatkan R². Validasi klaster dan distribusi Anxiety lebih lanjut.</li>
         </ul>
     </div>
 
@@ -34,70 +55,39 @@
         <p>Menunjukkan hubungan antara jam mendengarkan musik dan skor kecemasan berdasarkan genre.</p>
         <div class="visualization">
             <div class="bk-root" id="scatter-plot-root" style="display: contents;"></div>
+            </script>
             <script type="text/javascript">
-                (function() {
-                    var render_items = [{"docid":"a6b9c8d1-2e3f-4a5b-8c9d-0f1e2d3a4b5c","roots":{"scatter-plot-root":"a6b9c8d1-2e3f-4a5b-8c9d-0f1e2d3a4b5c"},"root_ids":["scatter-plot-root"]}}];
-                    var docs_json = {
-                        "a6b9c8d1-2e3f-4a5b-8c9d-0f1e2d3a4b5c": {
-                            "defs": [],
-                            "roots": {
-                                "scatter-plot-root": {
-                                    "type": "Plot",
-                                    "id": "scatter-plot-root",
-                                    "attributes": {
-                                        "title": {"text": "Jam Mendengarkan Musik vs. Kecemasan Berdasarkan Genre"},
-                                        "x_axis_label": "Jam per Hari",
-                                        "y_axis_label": "Kecemasan (0-25)",
-                                        "tools": ["pan", "box_zoom", "reset", "save"],
-                                        "width": 600,
-                                        "height": 400,
-                                        "renderers": [{
-                                            "type": "GlyphRenderer",
-                                            "id": "glyph-renderer",
-                                            "attributes": {
-                                                "data_source": {
-                                                    "type": "ColumnDataSource",
-                                                    "id": "data-source",
-                                                    "attributes": {
-                                                        "data": {
-                                                            "x": [1, 2, 3, 4, 5],
-                                                            "y": [5, 6, 7, 8, 9],
-                                                            "genre": ["Pop", "Rock", "Jazz", "EDM", "Classical"],
-                                                            "age": [20, 25, 30, 35, 40],
-                                                            "streaming": ["Spotify", "YouTube", "Spotify", "YouTube", "Apple"],
-                                                            "color": ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff"]
-                                                        }
-                                                    }
-                                                },
-                                                "glyph": {
-                                                    "type": "Scatter",
-                                                    "id": "scatter-glyph",
-                                                    "attributes": {
-                                                        "x": {"field": "x"},
-                                                        "y": {"field": "y"},
-                                                        "size": 8,
-                                                        "color": {"field": "color"},
-                                                        "legend_field": "genre",
-                                                        "alpha": 0.7
-                                                    }
-                                                }
+                (function () {
+                    const fn = function () {
+                        Bokeh.safely(function () {
+                            (function (root) {
+                                function embed_document(root) {
+                                    const docs_json = document.getElementById('bcc29a0c-7487-4db2-a8f5-5f9cdb9a6b5f').textContent;
+                                    const render_items = [{ "docid": "35f56adb-1bfd-4bb5-8633-5214aaaca38d", "roots": { "p1057": "bc410989-059f-4d0f-871f-61885a98e347" }, "root_ids": ["p1057"] }];
+                                    root.Bokeh.embed.embed_items(docs_json, render_items);
+                                }
+                                if (root.Bokeh !== undefined) {
+                                    embed_document(root);
+                                } else {
+                                    let attempts = 0;
+                                    const timer = setInterval(function (root) {
+                                        if (root.Bokeh !== undefined) {
+                                            clearInterval(timer);
+                                            embed_document(root);
+                                        } else {
+                                            attempts++;
+                                            if (attempts > 100) {
+                                                clearInterval(timer);
+                                                console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
                                             }
-                                        }],
-                                        "toolbar": {"tools": ["pan", "box_zoom", "reset", "save"]},
-                                        "toolbar_location": "above"
-                                    }
+                                        }
+                                    }, 10, root)
                                 }
-                            },
-                            "callbacks": {
-                                "select_streaming": {
-                                    "type": "CustomJS",
-                                    "code": "const data = source.data; const streaming = cb_obj.value; const max_age = slider.value; let filtered_x = []; let filtered_y = []; let filtered_genre = []; let filtered_age = []; let filtered_streaming = []; let filtered_color = []; for (let i = 0; i < data.x.length; i++) { if ((streaming === \"Semua\" || data.streaming[i] === streaming) && data.age[i] <= max_age) { filtered_x.push(data.x[i]); filtered_y.push(data.y[i]); filtered_genre.push(data.genre[i]); filtered_age.push(data.age[i]); filtered_streaming.push(data.streaming[i]); filtered_color.push(data.color[i]); } } source.data = {x: filtered_x, y: filtered_y, genre: filtered_genre, age: filtered_age, streaming: filtered_streaming, color: filtered_color}; source.change.emit();"
-                                }
-                            }
-                        }
+                            })(window);
+                        });
                     };
-                    var renderers = render_items.map(function(item) { return Bokeh.documents[item.docid].get({root_ids: item.root_ids, refs: item.refs}); });
-                    Bokeh.embed.embed_items(docs_json, renderers);
+                    if (document.readyState != "loading") fn();
+                    else document.addEventListener("DOMContentLoaded", fn);
                 })();
             </script>
         </div>
@@ -116,130 +106,85 @@
         <p>Menunjukkan korelasi antara variabel kesehatan mental dan kebiasaan musik.</p>
         <div class="visualization">
             <div class="bk-root" id="heatmap-root" style="display: contents;"></div>
+            </script>
             <script type="text/javascript">
-                (function() {
-                    var render_items = [{"docid":"e7c0d9f2-3f4a-5b6c-9d0e-1f2e3d4a5b6c","roots":{"heatmap-root":"e7c0d9f2-3f4a-5b6c-9d0e-1f2e3d4a5b6c"},"root_ids":["heatmap-root"]}}];
-                    var docs_json = {
-                        "e7c0d9f2-3f4a-5b6c-9d0e-1f2e3d4a5b6c": {
-                            "defs": [],
-                            "roots": {
-                                "heatmap-root": {
-                                    "type": "Plot",
-                                    "id": "heatmap-root",
-                                    "attributes": {
-                                        "title": {"text": "Heatmap Korelasi"},
-                                        "x_axis_label": "Variabel",
-                                        "y_axis_label": "Variabel",
-                                        "tools": ["hover", "pan", "box_zoom", "reset", "save"],
-                                        "width": 600,
-                                        "height": 400,
-                                        "renderers": [{
-                                            "type": "GlyphRenderer",
-                                            "id": "heatmap-renderer",
-                                            "attributes": {
-                                                "data_source": {
-                                                    "type": "ColumnDataSource",
-                                                    "id": "heatmap-source",
-                                                    "attributes": {
-                                                        "data": {
-                                                            "x": [0, 1, 2, 0, 1, 2],
-                                                            "y": [0, 0, 0, 1, 1, 1],
-                                                            "value": [0.5, 0.7, 0.3, 0.7, 0.4, 0.6],
-                                                            "color": ["#d7191c", "#fdae61", "#abd9e9", "#fdae61", "#2c7bb6", "#abd9e9"]
-                                                        }
-                                                    }
-                                                },
-                                                "glyph": {
-                                                    "type": "Rect",
-                                                    "id": "rect-glyph",
-                                                    "attributes": {
-                                                        "x": {"field": "x"},
-                                                        "y": {"field": "y"},
-                                                        "width": 1,
-                                                        "height": 1,
-                                                        "fill_color": {"field": "color"},
-                                                        "line_color": null
-                                                    }
-                                                }
-                                            }
-                                        }],
-                                        "toolbar": {"tools": ["hover", "pan", "box_zoom", "reset", "save"]},
-                                        "toolbar_location": "above"
-                                    }
+                (function () {
+                    const fn = function () {
+                        Bokeh.safely(function () {
+                            (function (root) {
+                                function embed_document(root) {
+                                    const docs_json = document.getElementById('ac7133e3-4085-43f4-9dfa-b700c4dc8fde').textContent;
+                                    const render_items = [{ "docid": "7a877818-8ded-4317-a0c5-b638c5e0a456", "roots": { "p1208": "bbb51b54-5faa-4178-9591-05e93d1324ef" }, "root_ids": ["p1208"] }];
+                                    root.Bokeh.embed.embed_items(docs_json, render_items);
                                 }
-                            }
-                        }
+                                if (root.Bokeh !== undefined) {
+                                    embed_document(root);
+                                } else {
+                                    let attempts = 0;
+                                    const timer = setInterval(function (root) {
+                                        if (root.Bokeh !== undefined) {
+                                            clearInterval(timer);
+                                            embed_document(root);
+                                        } else {
+                                            attempts++;
+                                            if (attempts > 100) {
+                                                clearInterval(timer);
+                                                console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                                            }
+                                        }
+                                    }, 10, root)
+                                }
+                            })(window);
+                        });
                     };
-                    var renderers = render_items.map(function(item) { return Bokeh.documents[item.docid].get({root_ids: item.root_ids, refs: item.refs}); });
-                    Bokeh.embed.embed_items(docs_json, renderers);
+                    if (document.readyState != "loading") fn();
+                    else document.addEventListener("DOMContentLoaded", fn);
                 })();
             </script>
         </div>
     </div>
 
     <div class="section">
-	    <h2>Visualisasi 4: Pie Chart Efek Musik</h2>
-	    <p>Menunjukkan proporsi efek musik terhadap kesehatan mental.</p>
-	    <div class="visualization">
-	        <div class="bk-root" id="pie-chart-root" style="display: contents;"></div>
-	        <script type="text/javascript">
-	            (function() {
-	                var render_items = [{"docid":"f8d1e0a3-4b5c-6d7e-0f1a-2e3d4a5b6c7d","roots":{"pie-chart-root":"f8d1e0a3-4b5c-6d7e-0f1a-2e3d4a5b6c7d"},"root_ids":["pie-chart-root"]}];
-	                var docs_json = {
-	                    "f8d1e0a3-4b5c-6d7e-0f1a-2e3d4a5b6c7d": {
-	                        "defs": [],
-	                        "roots": {
-	                            "pie-chart-root": {
-	                                "type": "Plot",
-	                                "id": "pie-chart-root",
-	                                "attributes": {
-	                                    "title": {"text": "Proporsi Efek Musik"},
-	                                    "width": 600,
-	                                    "height": 400,
-	                                    "renderers": [{
-	                                        "type": "GlyphRenderer",
-	                                        "id": "pie-renderer",
-	                                        "attributes": {
-	                                            "data_source": {
-	                                                "type": "ColumnDataSource",
-	                                                "id": "pie-source",
-	                                                "attributes": {
-	                                                    "data": {
-	                                                        "genres": ["Meningkat", "Netral", "Memburuk"],
-	                                                        "angles": [0.74, 0.15, 0.11],
-	                                                        "colors": ["#1f77b4", "#ff7f0e", "#2ca02c"],
-	                                                        "start_angle": [0, 0.74, 0.89],
-	                                                        "end_angle": [0.74, 0.89, 1]
-	                                                    }
-	                                                }
-	                                            },
-	                                            "glyph": {
-	                                                "type": "Wedge",
-	                                                "id": "wedge-glyph",
-	                                                "attributes": {
-	                                                    "x": 0,
-	                                                    "y": 0,
-	                                                    "radius": 0.4,
-	                                                    "start_angle": {"field": "start_angle"},
-	                                                    "end_angle": {"field": "end_angle"},
-	                                                    "fill_color": {"field": "colors"},
-	                                                    "line_color": "white"
-	                                                }
-	                                            }
-	                                        }
-	                                    }],
-	                                    "toolbar_location": null
-	                                }
-	                            }
-	                        }
-	                    }
-	                };
-	                var renderers = render_items.map(function(item) { return Bokeh.documents[item.docid].get({root_ids: item.root_ids, refs: item.refs}); });
-	                Bokeh.embed.embed_items(docs_json, renderers);
-	            })();
-	        </script>
-	    </div>
-	</div>
+        <h2>Visualisasi 4: Pie Chart Efek Musik</h2>
+        <p>Menunjukkan proporsi efek musik terhadap kesehatan mental.</p>
+        <div class="visualization">
+            <div class="bk-root" id="pie-chart-root" style="display: contents;"></div>
+            <script type="text/javascript">
+                (function () {
+                    const fn = function () {
+                        Bokeh.safely(function () {
+                            (function (root) {
+                                function embed_document(root) {
+                                    const docs_json = document.getElementById('f2c46152-1358-4ea0-9095-ee7e0872967a').textContent;
+                                    const render_items = [{ "docid": "d6a3883a-3573-43d1-8052-72ec2fb343d6", "roots": { "p1118": "b9bbb4e2-cb5c-40ae-9a71-72e1e1dbb1b6" }, "root_ids": ["p1118"] }];
+                                    root.Bokeh.embed.embed_items(docs_json, render_items);
+                                }
+                                if (root.Bokeh !== undefined) {
+                                    embed_document(root);
+                                } else {
+                                    let attempts = 0;
+                                    const timer = setInterval(function (root) {
+                                        if (root.Bokeh !== undefined) {
+                                            clearInterval(timer);
+                                            embed_document(root);
+                                        } else {
+                                            attempts++;
+                                            if (attempts > 100) {
+                                                clearInterval(timer);
+                                                console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                                            }
+                                        }
+                                    }, 10, root)
+                                }
+                            })(window);
+                        });
+                    };
+                    if (document.readyState != "loading") fn();
+                    else document.addEventListener("DOMContentLoaded", fn);
+                })();
+            </script>
+        </div>
+    </div>
 
     <div class="section">
         <h2>Visualisasi 5: Bar Plot Kesehatan Mental</h2>
@@ -247,64 +192,46 @@
         <div class="visualization">
             <div class="bk-root" id="bar-plot-root" style="display: contents;"></div>
             <script type="text/javascript">
-                (function() {
-                    var render_items = [{"docid":"g9e2f1b4-5c6d-7e8f-1a2b-3d4e5a6b7c8d","roots":{"bar-plot-root":"g9e2f1b4-5c6d-7e8f-1a2b-3d4e5a6b7c8d"},"root_ids":["bar-plot-root"]}}];
-                    var docs_json = {
-                        "g9e2f1b4-5c6d-7e8f-1a2b-3d4e5a6b7c8d": {
-                            "defs": [],
-                            "roots": {
-                                "bar-plot-root": {
-                                    "type": "Plot",
-                                    "id": "bar-plot-root",
-                                    "attributes": {
-                                        "title": {"text": "Distribusi Skor Kesehatan Mental"},
-                                        "x_axis_label": "Kategori",
-                                        "y_axis_label": "Skor",
-                                        "tools": ["pan", "box_zoom", "reset", "save"],
-                                        "width": 600,
-                                        "height": 400,
-                                        "renderers": [{
-                                            "type": "GlyphRenderer",
-                                            "id": "bar-renderer",
-                                            "attributes": {
-                                                "data_source": {
-                                                    "type": "ColumnDataSource",
-                                                    "id": "bar-source",
-                                                    "attributes": {
-                                                        "data": {
-                                                            "categories": ["Anxiety", "Depression", "Insomnia", "OCD"],
-                                                            "scores": [5.8, 4.8, 3.7, 2.6]
-                                                        }
-                                                    }
-                                                },
-                                                "glyph": {
-                                                    "type": "VBar",
-                                                    "id": "vbar-glyph",
-                                                    "attributes": {
-                                                        "x": {"field": "categories"},
-                                                        "top": {"field": "scores"},
-                                                        "width": 0.5,
-                                                        "fill_color": "#1f77b4"
-                                                    }
-                                                }
-                                            }
-                                        }],
-                                        "toolbar": {"tools": ["pan", "box_zoom", "reset", "save"]},
-                                        "toolbar_location": "above"
-                                    }
+                (function () {
+                    const fn = function () {
+                        Bokeh.safely(function () {
+                            (function (root) {
+                                function embed_document(root) {
+                                    const docs_json = document.getElementById('d57a8a08-b9c8-464f-b4d4-82b3fdbb89d8').textContent;
+                                    const render_items = [{ "docid": "5ec61ebe-1abe-41cb-ba48-75b65578252a", "roots": { "p1112": "e440257d-1f1d-4155-b086-a55e3cdc5ee6" }, "root_ids": ["p1112"] }];
+                                    root.Bokeh.embed.embed_items(docs_json, render_items);
                                 }
-                            }
-                        }
+                                if (root.Bokeh !== undefined) {
+                                    embed_document(root);
+                                } else {
+                                    let attempts = 0;
+                                    const timer = setInterval(function (root) {
+                                        if (root.Bokeh !== undefined) {
+                                            clearInterval(timer);
+                                            embed_document(root);
+                                        } else {
+                                            attempts++;
+                                            if (attempts > 100) {
+                                                clearInterval(timer);
+                                                console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                                            }
+                                        }
+                                    }, 10, root)
+                                }
+                            })(window);
+                        });
                     };
-                    var renderers = render_items.map(function(item) { return Bokeh.documents[item.docid].get({root_ids: item.root_ids, refs: item.refs}); });
-                    Bokeh.embed.embed_items(docs_json, renderers);
+                    if (document.readyState != "loading") fn();
+                    else document.addEventListener("DOMContentLoaded", fn);
                 })();
             </script>
         </div>
     </div>
 
     <footer>
-        <p>Proyek dikembangkan menggunakan data dari mxmh_survey_results.csv dan visualisasi dengan Bokeh & Matplotlib. © 2025</p>
+        <p>Proyek dikembangkan menggunakan data dari mxmh_survey_results.csv dan visualisasi dengan Bokeh & Matplotlib.
+            © 2025</p>
     </footer>
 </body>
+
 </html>
