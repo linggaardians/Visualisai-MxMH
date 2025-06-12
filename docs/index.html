@@ -178,66 +178,68 @@
     </div>
 
     <div class="section">
-        <h2>Visualisasi 4: Pie Chart Efek Musik</h2>
-        <p>Menunjukkan proporsi efek musik terhadap kesehatan mental.</p>
-        <div class="visualization">
-            <div class="bk-root" id="pie-chart-root" style="display: contents;"></div>
-            <script type="text/javascript">
-                (function() {
-                    var render_items = [{"docid":"f8d1e0a3-4b5c-6d7e-0f1a-2e3d4a5b6c7d","roots":{"pie-chart-root":"f8d1e0a3-4b5c-6d7e-0f1a-2e3d4a5b6c7d"},"root_ids":["pie-chart-root"]}}];
-                    var docs_json = {
-                        "f8d1e0a3-4b5c-6d7e-0f1a-2e3d4a5b6c7d": {
-                            "defs": [],
-                            "roots": {
-                                "pie-chart-root": {
-                                    "type": "Plot",
-                                    "id": "pie-chart-root",
-                                    "attributes": {
-                                        "title": {"text": "Proporsi Efek Musik"},
-                                        "width": 600,
-                                        "height": 400,
-                                        "renderers": [{
-                                            "type": "GlyphRenderer",
-                                            "id": "pie-renderer",
-                                            "attributes": {
-                                                "data_source": {
-                                                    "type": "ColumnDataSource",
-                                                    "id": "pie-source",
-                                                    "attributes": {
-                                                        "data": {
-                                                            "genres": ["Meningkat", "Netral", "Memburuk"],
-                                                            "angles": [0.74, 0.15, 0.11],
-                                                            "colors": ["#1f77b4", "#ff7f0e", "#2ca02c"]
-                                                        }
-                                                    }
-                                                },
-                                                "glyph": {
-                                                    "type": "Wedge",
-                                                    "id": "wedge-glyph",
-                                                    "attributes": {
-                                                        "x": 0,
-                                                        "y": 0,
-                                                        "radius": 0.4,
-                                                        "start_angle": {"field": "start_angle"},
-                                                        "end_angle": {"field": "end_angle"},
-                                                        "fill_color": {"field": "colors"},
-                                                        "line_color": "white"
-                                                    }
-                                                }
-                                            }
-                                        }],
-                                        "toolbar_location": null
-                                    }
-                                }
-                            }
-                        }
-                    };
-                    var renderers = render_items.map(function(item) { return Bokeh.documents[item.docid].get({root_ids: item.root_ids, refs: item.refs}); });
-                    Bokeh.embed.embed_items(docs_json, renderers);
-                })();
-            </script>
-        </div>
-    </div>
+	    <h2>Visualisasi 4: Pie Chart Efek Musik</h2>
+	    <p>Menunjukkan proporsi efek musik terhadap kesehatan mental.</p>
+	    <div class="visualization">
+	        <div class="bk-root" id="pie-chart-root" style="display: contents;"></div>
+	        <script type="text/javascript">
+	            (function() {
+	                var render_items = [{"docid":"f8d1e0a3-4b5c-6d7e-0f1a-2e3d4a5b6c7d","roots":{"pie-chart-root":"f8d1e0a3-4b5c-6d7e-0f1a-2e3d4a5b6c7d"},"root_ids":["pie-chart-root"]}];
+	                var docs_json = {
+	                    "f8d1e0a3-4b5c-6d7e-0f1a-2e3d4a5b6c7d": {
+	                        "defs": [],
+	                        "roots": {
+	                            "pie-chart-root": {
+	                                "type": "Plot",
+	                                "id": "pie-chart-root",
+	                                "attributes": {
+	                                    "title": {"text": "Proporsi Efek Musik"},
+	                                    "width": 600,
+	                                    "height": 400,
+	                                    "renderers": [{
+	                                        "type": "GlyphRenderer",
+	                                        "id": "pie-renderer",
+	                                        "attributes": {
+	                                            "data_source": {
+	                                                "type": "ColumnDataSource",
+	                                                "id": "pie-source",
+	                                                "attributes": {
+	                                                    "data": {
+	                                                        "genres": ["Meningkat", "Netral", "Memburuk"],
+	                                                        "angles": [0.74, 0.15, 0.11],
+	                                                        "colors": ["#1f77b4", "#ff7f0e", "#2ca02c"],
+	                                                        "start_angle": [0, 0.74, 0.89],
+	                                                        "end_angle": [0.74, 0.89, 1]
+	                                                    }
+	                                                }
+	                                            },
+	                                            "glyph": {
+	                                                "type": "Wedge",
+	                                                "id": "wedge-glyph",
+	                                                "attributes": {
+	                                                    "x": 0,
+	                                                    "y": 0,
+	                                                    "radius": 0.4,
+	                                                    "start_angle": {"field": "start_angle"},
+	                                                    "end_angle": {"field": "end_angle"},
+	                                                    "fill_color": {"field": "colors"},
+	                                                    "line_color": "white"
+	                                                }
+	                                            }
+	                                        }
+	                                    }],
+	                                    "toolbar_location": null
+	                                }
+	                            }
+	                        }
+	                    }
+	                };
+	                var renderers = render_items.map(function(item) { return Bokeh.documents[item.docid].get({root_ids: item.root_ids, refs: item.refs}); });
+	                Bokeh.embed.embed_items(docs_json, renderers);
+	            })();
+	        </script>
+	    </div>
+	</div>
 
     <div class="section">
         <h2>Visualisasi 5: Bar Plot Kesehatan Mental</h2>
